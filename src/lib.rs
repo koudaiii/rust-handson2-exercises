@@ -9,8 +9,11 @@ use std::str;
 /// ```rust
 /// assert_eq!(reverse_each_line("abc\ndef\n"), "cba\nfed\n");
 /// ```
-pub fn reverse_each_line(_text: &str) -> String {
-    unimplemented!();
+pub fn reverse_each_line(text: &str) -> String {
+    //    unimplemented!();
+    text.split_terminator('\n')
+        .flat_map(|line| line.chars().rev().chain(Some('\n')))
+        .collect()
 }
 
 /// HTTPヘッダー名をCGI変数名に変換してください。具体的には以下をしてください。
